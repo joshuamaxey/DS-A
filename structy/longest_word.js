@@ -4,31 +4,53 @@
 
 const longestWord = (sentence) => {
     const words = sentence.split(" ");
-    // console.log(words);
 
-    // Create variable to hold the longest word.
-    // Set to null initially
+    // Create variable to hold the current longest word
+    // Set initially to null
     let word = null;
 
     for (let i = 0; i < words.length; i++) { // for each word in words
 
-      // check to see if word is null
-      if (word === null) {
-        // If so, set 'word' to the value of the current word
-        word = words[i]
-      } else {
-        // Otherwise, check to se if the length of the current 'word'
-        // is shorter than the length of the word located at the current index of the array
-        // OR is equal to the length of the word located at the current index of the array
-          // ^ to account for two words that are the same length and make sure we keep the latter
-        // If so, set 'word' equal to the length of the value located at the current index of the array
-        if ((word.length < words[i].length) || (word.length == words[i].length)) {
-          word = words[i]
+        // Check to see if word is null
+        if (word == null) {
+            // If so, set the value of 'word' to the value of the word at the current index of the array
+            word = words[i];
+        } else {
+            // Otherwise, check tosee if the length of the current word is shorter than the word located at the current index of the array
+            // OR if it is equal to the length of the word located at the current index of the array
+                // ^ To account for two words that are the same length, making sure we keep the latter of the two
+            // If so, set 'word' equal to the word located at the current index of the 'words' array
+            if ((word.length < words[i].length) || (word.length == words[i].length)) {
+                word = words[i]
+            }
         }
-      }
     }
-    return word;
-  };
 
-  console.log(longestWord("what a wonderful world")); // -> 'wonderful'
-  console.log(longestWord("have a nice day")); // -> 'nice'
+    return word;
+}
+
+console.log(longestWord("what a wonderful world")); // -> 'wonderful'
+console.log(longestWord("have a nice day")); // -> 'nice'
+
+// ! Alternatively:
+
+// Set 'word' to an empty string initially
+// This will eliminate the need for the initial conditional used above
+// For checking to see if the word is set to 'null'
+
+const longestWord2 = (sentence) => {
+    const words = sentence.split(" ");
+
+    let word = "";
+
+    for (let i = 0; i < words.length; i++) {
+        if ((word.length < words[i].length) || (word.length == words[i].length)) {
+            word = words[i]
+        }
+    }
+
+    return word;
+}
+
+console.log(longestWord("what a wonderful world")); // -> 'wonderful'
+console.log(longestWord("have a nice day")); // -> 'nice'
