@@ -52,5 +52,25 @@ const longestWord2 = (sentence) => {
     return word;
 }
 
-console.log(longestWord("what a wonderful world")); // -> 'wonderful'
-console.log(longestWord("have a nice day")); // -> 'nice'
+console.log(longestWord2("what a wonderful world")); // -> 'wonderful'
+console.log(longestWord2("have a nice day")); // -> 'nice'
+
+
+// ! Alvin's Solution:
+
+const longestWord3 = (sentence) => {
+
+    const words = sentence.split(" ");
+    let longest = "";
+
+    for (let word of words) { // use a FOR OF loop here
+        if (word.length >= longest.length) { // Use the >= operator to check for greater than OR equal to at the same time
+            longest = word;
+        }
+    }
+
+    return longest;
+}
+
+console.log(longestWord3("what a wonderful world")); // -> 'wonderful'
+console.log(longestWord3("have a nice day")); // -> 'nice'
