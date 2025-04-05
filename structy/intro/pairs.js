@@ -27,3 +27,6 @@ const pairs = (elements) => { // 'elements' will be an array
 }
 
 console.log(pairs(["a", "b", "c", "d"]))
+
+// Note that our time complexity here is O(n^2) as a consequence of the nested loop.
+// Because we're also creating a new array with the elements added from both loops, our time complexity is also O(n^2)
