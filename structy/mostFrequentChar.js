@@ -33,6 +33,8 @@ const mostFrequentChar = (s) => {
         }
     }
 
+    // OR
+
     console.log(most_frequent);
 
     // This logic also ensures that we always capture the FIRST of any characters with the same max frequency because if we come across a letter that has the same frequency of...
@@ -41,4 +43,13 @@ const mostFrequentChar = (s) => {
 
 mostFrequentChar("apple");
 mostFrequentChar("potato");
-mostFrequentChar("banana")
+mostFrequentChar("banana");
+
+// Our time complexity here is O(n). This is because, even though we are running two loops, we're running them in parallel.
+// If the loops were nested, we'd have a time complexity of O(n^2). Because they're parallel, our unsimplified time complexity is O(2n).
+// And when we eliminate 2, because it's a constant factor, we're left with O(n), where n is the size of the input string.
+
+// The same is true for our space complexity, it's O(n).
+// This is because we're creating one new object which is initialized based on the size of the input string.
+// Our 'count' and 'most_frequent' variables are constant (they will only ever be a single value, their size does not scale with the size of the input string), so we can igore them
+// That leaves us with a space complexity of O(n), where n is the size of the input string (since the size of our new object is based on that input)
